@@ -36,7 +36,9 @@ mkdir -p "$BUILD_DIR"
 prepare_helloworld "$HELLOWORLD_DIR"
 prepare_no_executable "$NO_EXECUTABLE_DIR"
 
-# Compress archive
+# Compress archives
 mkdir -p out/
 tar czf out/helloworld.tar.gz -C "$BUILD_DIR" helloworld/ 
 tar czf out/no_executable.tar.gz -C "$BUILD_DIR" no_executable/
+tar cjf out/helloworld.tar.bz2 -C "$BUILD_DIR" helloworld/ 
+tar cJf out/helloworld.tar.xz -C "$BUILD_DIR" helloworld/ 
