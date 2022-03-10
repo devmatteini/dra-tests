@@ -14,9 +14,11 @@ $ ./create-release.sh 0.1.0
 
 ## Assets
 
-- Debian package (.deb)
-- Tar archive (.tar.gz)
-- Zip archive (.zip)
+- Debian package (`.deb`)
+- Tar archives
+  - `.tar.{gz,bz2,xz}` with executable
+  - `.tar.gz` without executable
+- Zip archive (`.zip`)
 
 All assets use the executable [helloworld](helloworld/helloworld).
 
