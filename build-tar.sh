@@ -2,6 +2,30 @@
 
 readonly BUILD_DIR="build-tar"
 readonly HELLOWORLD_DIR="$BUILD_DIR/helloworld"
+readonly NO_EXECUTABLE_DIR="$BUILD_DIR/no_executable"
+
+function prepare_helloworld(){
+    local dir
+    dir="$1"
+
+    mkdir "$dir"
+    cp helloworld/helloworld "$dir"
+    touch "$dir"/LICENSE
+    touch "$dir"/README.md
+    mkdir "$dir"/notes
+    touch "$dir"/notes/latest.txt
+}
+
+function prepare_no_executable(){
+    local dir
+    dir="$1"
+
+    mkdir "$dir"
+    touch "$dir"/LICENSE
+    touch "$dir"/README.md
+    mkdir "$dir"/notes
+    touch "$dir"/notes/latest.txt
+}
 
 # Create build directory
 if [[ -d "$BUILD_DIR" ]]; then
@@ -9,17 +33,10 @@ if [[ -d "$BUILD_DIR" ]]; then
 fi
 mkdir -p "$BUILD_DIR"
 
-# Create directory to compress
-mkdir "$HELLOWORLD_DIR"
-cp helloworld/helloworld "$HELLOWORLD_DIR"
-# also add some random files and directories
-touch "$HELLOWORLD_DIR"/LICENSE
-touch "$HELLOWORLD_DIR"/README.md
-mkdir "$HELLOWORLD_DIR"/notes
-touch "$HELLOWORLD_DIR"/notes/latest.txt
+prepare_helloworld "$HELLOWORLD_DIR"
+prepare_no_executable "$NO_EXECUTABLE_DIR"
 
 # Compress archive
 mkdir -p out/
 tar czf out/helloworld.tar.gz -C "$BUILD_DIR" helloworld/ 
-
-
+tar czf out/no_executable.tar.gz -C "$BUILD_DIR" no_executable/
