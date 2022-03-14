@@ -20,6 +20,10 @@ rm -rf out/
 mkdir -p out/
 make build
 
+# Create some assets with version inside filename
+cp out/helloworld.tar.gz out/"helloworld_${version}.tar.gz"
+cp out/helloworld.deb out/"helloworld_${version}_amd64.deb"
+
 git push
 git push --tags
 
