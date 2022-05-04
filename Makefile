@@ -1,6 +1,6 @@
 build:
-	./build-deb.sh
-	./build-tar.sh
-	./build-zip.sh
+	./create-deb.sh
+	./create-tar.sh
+	./create-zip.sh
 
 .PHONY: build
