@@ -29,11 +29,11 @@ function prepare_no_executable(){
 
 function create_archive_without_root_directory(){
     local dir
-    local out_dir
+    local out_file
     dir="$1"
-    out_dir="$2"
+    out_file="$2"
 
-    (cd "$dir" && tar czf "$out_dir" *)
+    (cd "$dir" && tar czf "$out_file" *)
 }
 
 # Create build directory
