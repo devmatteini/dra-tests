@@ -2,6 +2,7 @@
 
 readonly BUILD_DIR="build-zip"
 readonly HELLOWORLD_DIR="$BUILD_DIR/helloworld"
+readonly HELLOWORLD_WINDOWS_DIR="$BUILD_DIR/helloworld-windows"
 
 function create_zip_without_root_directory(){
     local dir
@@ -18,7 +19,7 @@ if [[ -d "$BUILD_DIR" ]]; then
 fi
 mkdir -p "$BUILD_DIR"
 
-# Create directory to compress
+# Create directory to compress - Unix
 mkdir "$HELLOWORLD_DIR"
 cp helloworld/helloworld "$HELLOWORLD_DIR"
 # also add some random files and directories
@@ -27,8 +28,17 @@ touch "$HELLOWORLD_DIR"/README.md
 mkdir "$HELLOWORLD_DIR"/notes
 touch "$HELLOWORLD_DIR"/notes/latest.txt
 
+# Create directory to compress - Windows
+mkdir "$HELLOWORLD_WINDOWS_DIR"
+cp helloworld-windows/helloworld.exe "$HELLOWORLD_WINDOWS_DIR"
+touch "$HELLOWORLD_WINDOWS_DIR"/LICENSE
+touch "$HELLOWORLD_WINDOWS_DIR"/README.md
+mkdir "$HELLOWORLD_WINDOWS_DIR"/notes
+touch "$HELLOWORLD_WINDOWS_DIR"/notes/latest.txt
+
 # Compress archive
 mkdir -p out/
-(cd "$BUILD_DIR" && zip -r ../out/helloworld.zip .)
+(cd "$BUILD_DIR" && zip -r ../out/helloworld.zip helloworld)
+(cd "$BUILD_DIR" && zip -r ../out/helloworld-windows.zip helloworld-windows)
 create_zip_without_root_directory "$HELLOWORLD_DIR" "$(pwd)/out/no_root_directory.zip"
 
