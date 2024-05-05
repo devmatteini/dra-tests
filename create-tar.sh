@@ -78,3 +78,4 @@ tar czf out/helloworld-x86_64-windows.tar.gz -C "$BUILD_DIR" helloworld-windows/
 
 # macOS
 tar czf out/helloworld-x86_64-apple-darwin.tar.gz -C "$BUILD_DIR" helloworld/ 
+tar czf out/helloworld-aarch64-apple-darwin.tar.gz -C "$BUILD_DIR" helloworld/ 
