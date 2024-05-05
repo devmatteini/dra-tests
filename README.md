@@ -9,7 +9,11 @@ Dependencies:
 - [gh](https://github.com/cli/cli)
 
 ```bash
-$ ./create-release.sh 0.1.0
+./create-release.sh 0.1.0
+# output: 0.1.0 release created
+
+./create-release.sh --pre-release 0.1.0
+# output: 0.1.0-alpha release created
 ```
 
 ## Assets
