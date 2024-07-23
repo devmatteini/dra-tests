@@ -86,7 +86,7 @@ tar czf out/no_executable.tar.gz -C "$BUILD_DIR" no_executable/
 tar cjf out/helloworld.tar.bz2 -C "$BUILD_DIR" helloworld/ 
 tar cJf out/helloworld.tar.xz -C "$BUILD_DIR" helloworld/ 
 tar czf out/helloworld-x86_64-linux.tar.gz -C "$BUILD_DIR" helloworld/
-tar czf out/helloworld-bin-x86_64-linux.tar.gz -C "$BUILD_DIR" helloworld-bin/
+tar czf out/helloworld-bin.tar.gz -C "$BUILD_DIR" helloworld-bin/
 
 # Windows
 tar czf out/helloworld-windows.tar.gz -C "$BUILD_DIR" helloworld-windows/ 
