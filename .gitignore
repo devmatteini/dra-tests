@@ -1,4 +1,5 @@
 build-debian/
 build-tar/
 build-zip/
+build-compressed-file/
 out/

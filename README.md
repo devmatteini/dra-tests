@@ -23,6 +23,7 @@ Dependencies:
   - `.tar.{gz,bz2,xz}` with executable
   - `.tar.gz` without executable
 - Zip archive (`.zip`)
+- Compressed files (`.gz`, `.bz2`, `.xz`)
 
 All assets use the executable [helloworld](helloworld/helloworld).
 
