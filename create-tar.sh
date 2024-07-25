@@ -5,6 +5,7 @@ readonly HELLOWORLD_DIR="$BUILD_DIR/helloworld"
 readonly HELLOWORLD_WINDOWS_DIR="$BUILD_DIR/helloworld-windows"
 readonly NO_EXECUTABLE_DIR="$BUILD_DIR/no_executable"
 readonly HELLOWORLD_BIN_DIR="$BUILD_DIR/helloworld-bin"
+readonly HELLOWORLD_MANY_EXECUTABLES_DIR="$BUILD_DIR/helloworld-many-executables"
 
 function prepare_helloworld(){
     local dir
@@ -54,6 +55,16 @@ function prepare_helloworld_bin(){
     touch "$dir"/notes/latest.txt
 }
 
+function prepare_many_executables(){
+    local dir
+    dir="$1"
+
+    mkdir "$dir"
+    cp helloworld/helloworld "$dir/install.sh"
+    cp helloworld/helloworld "$dir/helloworld-v2"
+    cp helloworld/helloworld "$dir/random-script"
+}
+
 function create_archive_without_root_directory(){
     local dir
     local out_file
@@ -73,6 +84,7 @@ prepare_helloworld "$HELLOWORLD_DIR"
 prepare_no_executable "$NO_EXECUTABLE_DIR"
 prepare_helloworld_windows "$HELLOWORLD_WINDOWS_DIR"
 prepare_helloworld_bin "$HELLOWORLD_BIN_DIR"
+prepare_many_executables "$HELLOWORLD_MANY_EXECUTABLES_DIR"
 
 # Compress archives
 mkdir -p out/
@@ -87,6 +99,7 @@ tar cjf out/helloworld.tar.bz2 -C "$BUILD_DIR" helloworld/
 tar cJf out/helloworld.tar.xz -C "$BUILD_DIR" helloworld/ 
 tar czf out/helloworld-x86_64-linux.tar.gz -C "$BUILD_DIR" helloworld/
 tar czf out/helloworld-bin.tar.gz -C "$BUILD_DIR" helloworld-bin/
+tar czf out/helloworld-many-executables-unix.tar.gz -C "$BUILD_DIR" helloworld-many-executables/ 
 
 # Windows
 tar czf out/helloworld-windows.tar.gz -C "$BUILD_DIR" helloworld-windows/ 
