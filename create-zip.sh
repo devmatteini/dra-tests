@@ -53,6 +53,8 @@ mkdir -p out/
 (cd "$BUILD_DIR" && zip -r ../out/helloworld-windows.zip helloworld-windows)
 create_zip_without_root_directory "$HELLOWORLD_DIR" "$(pwd)/out/no_root_directory.zip"
 
+# Create 7z archive
+(cd "$HELLOWORLD_DIR" && 7z -y a ../../out/helloworld.7z . >/dev/null)
 
 prepare_many_executables "$HELLOWORLD_MANY_EXECUTABLES_DIR"
 (cd "$BUILD_DIR" && zip -r ../out/helloworld-many-executables-windows.zip helloworld-many-executables)
